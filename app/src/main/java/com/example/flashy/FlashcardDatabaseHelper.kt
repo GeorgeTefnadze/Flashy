@@ -23,4 +23,8 @@ class FlashcardDatabaseHelper(context: Context) : SQLiteOpenHelper(context, "fla
         db.execSQL("DROP TABLE IF EXISTS flashcards")
         onCreate(db)
     }
+
+    fun deleteFlashcard(id: Int) {
+        writableDatabase.delete("flashcards", "id = ?", arrayOf(id.toString()))
+    }
 }
