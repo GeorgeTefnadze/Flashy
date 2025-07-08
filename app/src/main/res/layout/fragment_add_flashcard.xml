@@ -1,40 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/add_flashcard_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="@android:color/white">
+    android:padding="24dp">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
+        <!-- Manual flashcard entry -->
         <EditText
-            android:id="@+id/editQuestion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/inputQuestion"
             android:hint="Enter Question"
-            android:inputType="textMultiLine"
-            android:minLines="2"
-            android:background="@android:drawable/edit_text" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/editAnswer"
+            android:id="@+id/inputAnswer"
+            android:hint="Enter Answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Answer"
-            android:inputType="textMultiLine"
-            android:minLines="2"
-            android:layout_marginTop="16dp"
-            android:background="@android:drawable/edit_text" />
+            android:layout_marginTop="8dp"/>
 
         <Button
-            android:id="@+id/btnSave"
+            android:id="@+id/btnAddManual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save"
-            android:layout_marginTop="24dp" />
+            android:text="Add Flashcard"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_outline"
+            android:textColor="#000000"
+            />
+
+        <!-- AI flashcard generation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/inputTopic"
+                android:hint="Topic for AI to generate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/spinnerCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnGenerateAI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generate from AI"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_outline"
+            android:textColor="#000000"/>
     </LinearLayout>
 </ScrollView>

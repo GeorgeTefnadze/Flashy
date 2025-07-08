@@ -15,6 +15,19 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val hfApiKey: String? = project.findProperty("HUGGINGFACE_API_KEY") as String?
+        buildConfigField("String", "HUGGINGFACE_API_KEY", "\"${hfApiKey ?: ""}\"")
+
+        buildConfigField(
+            "String",
+            "HUGGINGFACE_API_KEY",
+            "\"${project.properties["HUGGINGFACE_API_KEY"]}\""
+        )
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -48,4 +61,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.okhttp)
 }
